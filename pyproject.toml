@@ -5,6 +5,7 @@ description = "📆 A Streamlit component to show callendar using FullCalendar (
 authors = ["Muhammad Luqman <im.imperativa@gmail.com>"]
 license = "Apache-2.0"
 readme = "README.md"
+repository = "https://github.com/im-perativa/streamlit-calendar"
 # This is required so the frontend code is properly included in the wheel. 
 include = ["streamlit_calendar/frontend/build/**/*"]
 
