@@ -1,0 +1,53 @@
+{
+  "name": "streamlit_calendar",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@fullcalendar/adaptive": "^6.1.8",
+    "@fullcalendar/core": "^6.1.8",
+    "@fullcalendar/daygrid": "^6.1.8",
+    "@fullcalendar/interaction": "^6.1.8",
+    "@fullcalendar/list": "^6.1.8",
+    "@fullcalendar/multimonth": "^6.1.8",
+    "@fullcalendar/react": "^6.1.8",
+    "@fullcalendar/resource": "^6.1.8",
+    "@fullcalendar/resource-daygrid": "^6.1.8",
+    "@fullcalendar/resource-timegrid": "^6.1.8",
+    "@fullcalendar/resource-timeline": "^6.1.8",
+    "@fullcalendar/scrollgrid": "^6.1.8",
+    "@fullcalendar/timegrid": "^6.1.8",
+    "@fullcalendar/timeline": "^6.1.8",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "streamlit-component-lib": "^2.0.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "homepage": ".",
+  "devDependencies": {
+    "@types/node": "^12.0.0",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "react-scripts": "^5.0.1",
+    "typescript": "^4.2.0"
+  }
+}
