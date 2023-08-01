@@ -2,19 +2,19 @@
 
 [![PyPI](https://img.shields.io/pypi/v/streamlit-calendar)](https://pypi.org/project/streamlit-calendar/)
 
-**A Streamlit component to show calendar view using [FullCalendar](https://fullcalendar.io/)**
+**A Streamlit component to show calendar view using [FullCalendar](https://fullcalendar.io/) with support for Streamlit light/dark theme**
 
-## Demo
+## 🌏Demo [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://calendar-component.streamlit.app/)
 
-![](https://github.com/im-perativa/streamlit-calendar/blob/master/demo/demo.gif)
+![](https://github.com/im-perativa/streamlit-calendar-demo/blob/main/demo.gif)
 
-## Installation
+## ⚙️Installation
 
 ```bash
 pip install streamlit-calendar
 ```
 
-## Usage
+## 💻Usage
 
 ```python
 from streamlit_calendar import calendar
@@ -30,12 +30,12 @@ calendar_options = {
     "initialView": "resourceTimelineDay",
     "resourceGroupField": "building",
     "resources": [
-        {"id": "a", "building": "Building A", "title": "Auditorium A"},
-        {"id": "b", "building": "Building A", "title": "Auditorium B"},
-        {"id": "c", "building": "Building B", "title": "Auditorium C"},
-        {"id": "d", "building": "Building B", "title": "Auditorium D"},
-        {"id": "e", "building": "Building C", "title": "Auditorium E"},
-        {"id": "f", "building": "Building C", "title": "Auditorium F"},
+        {"id": "a", "building": "Building A", "title": "Building A"},
+        {"id": "b", "building": "Building A", "title": "Building B"},
+        {"id": "c", "building": "Building B", "title": "Building C"},
+        {"id": "d", "building": "Building B", "title": "Building D"},
+        {"id": "e", "building": "Building C", "title": "Building E"},
+        {"id": "f", "building": "Building C", "title": "Building F"},
     ],
 }
 calendar_events = [
@@ -64,11 +64,9 @@ st.write(calendar)
 ```
 
 For complete `event` object properties, check out: [https://fullcalendar.io/docs/event-object](https://fullcalendar.io/docs/event-object)  
-For complete `options` object properties, check: [https://fullcalendar.io/docs](https://fullcalendar.io/docs)
+For complete `options` object properties, check out: [https://fullcalendar.io/docs](https://fullcalendar.io/docs)
 
-See [the demo app](https://calendar-component.streamlit.app/) for a detailed demo!
-
-## Development
+## 🛠️Development
 
 Note: you only need to run these steps if you want to change this component or
 contribute to its development!
