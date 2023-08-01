@@ -43,15 +43,24 @@ else:
 # `declare_component` and call it done. The wrapper allows us to customize
 # our component's API: we can pre-process its input args, post-process its
 # output value, and add a docstring for users.
-def calendar(events=[], options={}, key=None):
+def calendar(events=[], options={},
+             license_key='CC-Attribution-NonCommercial-NoDerivatives', key=None):
     """Create a new instance of "calendar".
 
     Parameters
     ----------
     events: event[]
-        Array of event object. For complete event object properties, check: https://fullcalendar.io/docs/event-object
+        Array of event object. For complete event object properties, 
+        check out: https://fullcalendar.io/docs/event-object
     options: dict
-        Dictionary of calendar options. For complete options, check: https://fullcalendar.io/docs
+        Dictionary of calendar options. For complete options, 
+        check out: https://fullcalendar.io/docs
+    license_key: str
+        An optional license key of FullCalendar. The package will use 
+        evaluation version which is licensed under a Creative Commons 
+        license that does not allow distribution of source code modifications 
+        nor use in commercial production websites or products if 
+        no license_key is provided.
     key: str or None
         An optional key that uniquely identifies this component. If this is
         None, and the component's arguments are changed, the component will
@@ -69,7 +78,8 @@ def calendar(events=[], options={}, key=None):
     #
     # "default" is a special argument that specifies the initial return
     # value of the component before the user has interacted with it.
-    component_value = _component_func(events=events, options=options, key=key, default={})
+    component_value = _component_func(events=events, options=options,
+                                      license_key=license_key, key=key, default={})
 
     # We could modify the value returned from the component if we wanted.
     # There's no need to do this in our simple example - but it's an option.
@@ -87,25 +97,25 @@ if not _RELEASE:
             'left': 'today prev,next',
             'center': 'title',
             'right': 'resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth'
-            },
+        },
         'slotMinTime': '06:00:00',
         'slotMaxTime': '18:00:00',
         'initialView': 'resourceTimelineDay',
         'resourceGroupField': 'building',
         'resources': [
-                { 'id': 'a', 'building': 'Building A', 'title': 'Auditorium A' },
-                { 'id': 'b', 'building': 'Building A', 'title': 'Auditorium B' },
-                { 'id': 'c', 'building': 'Building B', 'title': 'Auditorium C' },
-                { 'id': 'd', 'building': 'Building B', 'title': 'Auditorium D' },
-                { 'id': 'e', 'building': 'Building C', 'title': 'Auditorium E' },
-                { 'id': 'f', 'building': 'Building C', 'title': 'Auditorium F' },
-            ]
+            {'id': 'a', 'building': 'Building A', 'title': 'Room A'},
+            {'id': 'b', 'building': 'Building A', 'title': 'Room B'},
+            {'id': 'c', 'building': 'Building B', 'title': 'Room C'},
+            {'id': 'd', 'building': 'Building B', 'title': 'Room D'},
+            {'id': 'e', 'building': 'Building C', 'title': 'Room E'},
+            {'id': 'f', 'building': 'Building C', 'title': 'Room F'},
+        ]
     }
 
     state = calendar(events=[
-          { "title": "Event 1", "start": "2023-07-31T08:30:00", "end": "2023-07-31T10:30:00", "resourceId": "a" },
-          { "title": "Event 2", "start": "2023-07-31T07:30:00", "end": "2023-07-31T10:30:00", "resourceId": "b" },
-          { "title": "Event 3", "start": "2023-07-31T10:40:00", "end": "2023-07-31T12:30:00", "resourceId": "a" },
-        ], options=options_dict, key="foo")
+        {"title": "Event 1", "start": "2023-07-31T08:30:00", "end": "2023-07-31T10:30:00", "resourceId": "a"},
+        {"title": "Event 2", "start": "2023-07-31T07:30:00", "end": "2023-07-31T10:30:00", "resourceId": "b"},
+        {"title": "Event 3", "start": "2023-07-31T10:40:00", "end": "2023-07-31T12:30:00", "resourceId": "a"},
+    ], options=options_dict, key="foo")
 
     st.write(state)

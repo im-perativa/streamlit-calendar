@@ -8,6 +8,7 @@ readme = "README.md"
 repository = "https://github.com/im-perativa/streamlit-calendar"
 # This is required so the frontend code is properly included in the wheel. 
 include = ["streamlit_calendar/frontend/build/**/*"]
+keywords = ["streamlit", "streamlit-component"]
 
 [tool.poetry.dependencies]
 python = "^3.8"

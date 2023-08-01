@@ -4,6 +4,10 @@
 
 **A Streamlit component to show calendar view using [FullCalendar](https://fullcalendar.io/)**
 
+## Demo
+
+![](https://github.com/im-perativa/streamlit-calendar/blob/master/demo/demo.gif)
+
 ## Installation
 
 ```bash
@@ -60,9 +64,9 @@ st.write(calendar)
 ```
 
 For complete `event` object properties, check out: [https://fullcalendar.io/docs/event-object](https://fullcalendar.io/docs/event-object)  
-For complete `options` object properties, check: [https://fullcalendar.io/docs](https://fullcalendar.io/docs) 
+For complete `options` object properties, check: [https://fullcalendar.io/docs](https://fullcalendar.io/docs)
 
-See [the demo app](https://calendar-component.streamlit.app/) for a detailed guide!
+See [the demo app](https://calendar-component.streamlit.app/) for a detailed demo!
 
 ## Development
 

@@ -1,0 +1,6 @@
+:root {
+    --fc-page-bg-color: var(--background-color);
+    --fc-neutral-bg-color: var(--secondary-background-color);
+    --fc-neutral-text-color: var(--text-color);
+    --fc-button-bg-color: var(--primary-color);
+}

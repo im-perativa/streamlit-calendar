@@ -16,6 +16,7 @@ import {
   StreamlitComponentBase,
   withStreamlitConnection,
 } from "streamlit-component-lib"
+import "./Calendar.css"
 
 interface State {
   dateClick: any
@@ -26,6 +27,7 @@ class Calendar extends StreamlitComponentBase<State> {
   public render = (): ReactNode => {
     const events = this.props.args["events"]
     const options = this.props.args["options"]
+    const licenseKey = this.props.args["license_key"]
 
     const plugins = [
       adaptivePlugin,
@@ -44,7 +46,7 @@ class Calendar extends StreamlitComponentBase<State> {
       <FullCalendar
         plugins={plugins}
         events={events}
-        schedulerLicenseKey="CC-Attribution-NonCommercial-NoDerivatives"
+        schedulerLicenseKey={licenseKey}
         {...options}
         dateClick={this.handleDateClick}
         eventClick={this.handleEventClick}
@@ -54,14 +56,20 @@ class Calendar extends StreamlitComponentBase<State> {
 
   private handleDateClick = (arg: any) => {
     this.setState(
-      (prevState) => ({ dateClick: JSON.parse(JSON.stringify(arg)) }),
+      (prevState) => ({
+        dateClick: JSON.parse(JSON.stringify(arg)),
+        eventClick: null,
+      }),
       () => Streamlit.setComponentValue(this.state)
     )
   }
 
   private handleEventClick = (arg: any) => {
     this.setState(
-      (prevState) => ({ eventClick: JSON.parse(JSON.stringify(arg)) }),
+      (prevState) => ({
+        eventClick: JSON.parse(JSON.stringify(arg)),
+        dateClick: null,
+      }),
       () => Streamlit.setComponentValue(this.state)
     )
   }
