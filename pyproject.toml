@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "streamlit-calendar"
-version = "0.3.0"
+version = "0.4.0"
 description = "📆 A Streamlit component to show callendar using FullCalendar (https://fullcalendar.io)"
 authors = ["Muhammad Luqman <im.imperativa@gmail.com>"]
 license = "Apache-2.0"
