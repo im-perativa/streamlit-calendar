@@ -21,6 +21,8 @@ import "./Calendar.css"
 interface State {
   dateClick: any
   eventClick: any
+  eventChange: any
+  eventsSet: any
 }
 
 class Calendar extends StreamlitComponentBase<State> {
@@ -45,11 +47,13 @@ class Calendar extends StreamlitComponentBase<State> {
     return (
       <FullCalendar
         plugins={plugins}
-        events={events}
+        initialEvents={events}
         schedulerLicenseKey={licenseKey}
-        {...options}
         dateClick={this.handleDateClick}
         eventClick={this.handleEventClick}
+        eventChange={this.handleEventChange}
+        eventsSet={this.handleEventsSet}
+        {...options}
       />
     )
   }
@@ -59,6 +63,8 @@ class Calendar extends StreamlitComponentBase<State> {
       (prevState) => ({
         dateClick: JSON.parse(JSON.stringify(arg)),
         eventClick: null,
+        eventChange: null,
+        eventsSet: null,
       }),
       () => Streamlit.setComponentValue(this.state)
     )
@@ -69,6 +75,34 @@ class Calendar extends StreamlitComponentBase<State> {
       (prevState) => ({
         eventClick: JSON.parse(JSON.stringify(arg)),
         dateClick: null,
+        eventChange: null,
+        eventsSet: null,
+      }),
+      () => {
+        Streamlit.setComponentValue(this.state)
+      }
+    )
+  }
+
+  private handleEventChange = (arg: any) => {
+    this.setState(
+      (prevState) => ({
+        eventChange: JSON.parse(JSON.stringify(arg)),
+        dateClick: null,
+        eventClick: null,
+      }),
+      () => {
+        Streamlit.setComponentValue(this.state)
+      }
+    )
+  }
+
+  private handleEventsSet = (arg: any) => {
+    this.setState(
+      (prevState) => ({
+        eventsSet: JSON.parse(JSON.stringify(arg)),
+        dateClick: null,
+        eventClick: null,
       }),
       () => Streamlit.setComponentValue(this.state)
     )
