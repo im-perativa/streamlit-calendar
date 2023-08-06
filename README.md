@@ -1,8 +1,11 @@
 # streamlit-calendar 📆
 
 [![PyPI](https://img.shields.io/pypi/v/streamlit-calendar)](https://pypi.org/project/streamlit-calendar/)
+[![Supported Python versions](https://img.shields.io/pypi/pyversions/pypistats.svg?logo=python&logoColor=FFE873)](https://pypi.org/project/streamlit-calendar/)
+[![PyPI downloads](https://img.shields.io/pypi/dm/streamlit-calendar.svg)](https://pypistats.org/packages/streamlit-calendar)
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/im-perativa/streamlit-calendar/ci.yml)](https://github.com/im-perativa/streamlit-calendar/actions)
+[![Code style: Black](https://img.shields.io/badge/code%20style-Black-000000.svg)](https://github.com/psf/black)
 
 **A Streamlit component to show calendar view using [FullCalendar](https://fullcalendar.io/) with support for Streamlit light/dark theme**
 
