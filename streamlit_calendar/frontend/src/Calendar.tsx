@@ -9,6 +9,7 @@ import resourceTimelinePlugin from "@fullcalendar/resource-timeline" // premium
 import timeGridPlugin from "@fullcalendar/timegrid"
 import timelinePlugin from "@fullcalendar/timeline" // premium
 
+import { EventApi, EventChangeArg, EventClickArg } from "@fullcalendar/core"
 import FullCalendar from "@fullcalendar/react"
 import { ReactNode } from "react"
 import {
@@ -70,7 +71,7 @@ class Calendar extends StreamlitComponentBase<State> {
     )
   }
 
-  private handleEventClick = (arg: any) => {
+  private handleEventClick = (arg: EventClickArg) => {
     this.setState(
       (prevState) => ({
         eventClick: JSON.parse(JSON.stringify(arg)),
@@ -84,7 +85,7 @@ class Calendar extends StreamlitComponentBase<State> {
     )
   }
 
-  private handleEventChange = (arg: any) => {
+  private handleEventChange = (arg: EventChangeArg) => {
     this.setState(
       (prevState) => ({
         eventChange: JSON.parse(JSON.stringify(arg)),
@@ -97,10 +98,17 @@ class Calendar extends StreamlitComponentBase<State> {
     )
   }
 
-  private handleEventsSet = (arg: any) => {
+  private handleEventsSet = (events: EventApi[]) => {
+    const eventsWithResource = events.map((e) => {
+      return {
+        ...JSON.parse(JSON.stringify(e)),
+        resourceId: e.getResources()[0]?.id,
+      }
+    })
+
     this.setState(
       (prevState) => ({
-        eventsSet: JSON.parse(JSON.stringify(arg)),
+        eventsSet: eventsWithResource,
         dateClick: null,
         eventClick: null,
       }),
