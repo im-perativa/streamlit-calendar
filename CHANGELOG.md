@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.5.0](https://github.com/im-perativa/streamlit-calendar/compare/v0.4.0...v0.5.0) (2023-08-30)
+
+
+### Features
+
+* update demo ([72eb8f0](https://github.com/im-perativa/streamlit-calendar/commit/72eb8f0ec8166abafd23fd404fbdcc024a89ccf2))
+
+
+### Bug Fixes
+
+* eventsSet result not returning resource id ([7bb8cc4](https://github.com/im-perativa/streamlit-calendar/commit/7bb8cc43d48e894a44b77f414c21e6c889d49af1)), closes [#2](https://github.com/im-perativa/streamlit-calendar/issues/2)
+* **style:** prevent overlap hover background color ([7e9df8b](https://github.com/im-perativa/streamlit-calendar/commit/7e9df8b6f8f257818d76dbbeab84b0f9b4fc7349))
+
 ## [0.4.0](https://github.com/im-perativa/streamlit-calendar/compare/v0.3.0...v0.4.0) (2023-08-05)
 
 
