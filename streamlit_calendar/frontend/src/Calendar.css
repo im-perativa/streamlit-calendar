@@ -3,4 +3,5 @@
     --fc-neutral-bg-color: var(--secondary-background-color);
     --fc-neutral-text-color: var(--text-color);
     --fc-button-bg-color: var(--primary-color);
+    --fc-list-event-hover-bg-color: var(--secondary-background-color);
 }
