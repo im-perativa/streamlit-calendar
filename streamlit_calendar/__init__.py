@@ -44,23 +44,27 @@ else:
 # `declare_component` and call it done. The wrapper allows us to customize
 # our component's API: we can pre-process its input args, post-process its
 # output value, and add a docstring for users.
-def calendar(events=[], options={},
-             license_key='CC-Attribution-NonCommercial-NoDerivatives', key=None):
+def calendar(
+    events=[],
+    options={},
+    license_key="CC-Attribution-NonCommercial-NoDerivatives",
+    key=None,
+):
     """Create a new instance of "calendar".
 
     Parameters
     ----------
     events: event[]
-        Array of event object. For complete event object properties, 
+        Array of event object. For complete event object properties,
         check out: https://fullcalendar.io/docs/event-object
     options: dict
-        Dictionary of calendar options. For complete options, 
+        Dictionary of calendar options. For complete options,
         check out: https://fullcalendar.io/docs
     license_key: str
-        An optional license key of FullCalendar. The package will use 
-        evaluation version which is licensed under a Creative Commons 
-        license that does not allow distribution of source code modifications 
-        nor use in commercial production websites or products if 
+        An optional license key of FullCalendar. The package will use
+        evaluation version which is licensed under a Creative Commons
+        license that does not allow distribution of source code modifications
+        nor use in commercial production websites or products if
         no license_key is provided.
     key: str or None
         An optional key that uniquely identifies this component. If this is
@@ -79,8 +83,9 @@ def calendar(events=[], options={},
     #
     # "default" is a special argument that specifies the initial return
     # value of the component before the user has interacted with it.
-    component_value = _component_func(events=events, options=options,
-                                      license_key=license_key, key=key, default={})
+    component_value = _component_func(
+        events=events, options=options, license_key=license_key, key=key, default={}
+    )
 
     # We could modify the value returned from the component if we wanted.
     # There's no need to do this in our simple example - but it's an option.
@@ -95,138 +100,237 @@ if not _RELEASE:
 
     st.set_page_config(page_title="Demo for streamlit-calendar", page_icon="📆")
 
-    st.markdown("## Demo for [streamlit-calendar](https://github.com/im-perativa/streamlit-calendar)")
-
-    mode = st.selectbox(
-        "Calendar Mode:", ("daygrid", "timegrid", "timeline",
-                           "resource-daygrid", "resource-timegrid", "resource-timeline",
-                           "list", "multimonth")
+    st.markdown(
+        "## Demo for [streamlit-calendar](https://github.com/im-perativa/streamlit-calendar)"
     )
 
-    calendar_options = {
-        'editable': 'true',
-    }
+    mode = st.selectbox(
+        "Calendar Mode:",
+        (
+            "daygrid",
+            "timegrid",
+            "timeline",
+            "resource-daygrid",
+            "resource-timegrid",
+            "resource-timeline",
+            "list",
+            "multimonth",
+        ),
+    )
+
     events = [
-        {"title": "Event 1", "color": "#FF6C6C", "start": "2023-07-03", "end": "2023-07-05", "resourceId": "a"},
-        {"title": "Event 2", "color": "#FFBD45", "start": "2023-07-01", "end": "2023-07-10", "resourceId": "b"},
-        {"title": "Event 3", "color": "#FF4B4B", "start": "2023-07-20", "end": "2023-07-20", "resourceId": "c"},
-        {"title": "Event 4", "color": "#FF6C6C", "start": "2023-07-23", "end": "2023-07-25", "resourceId": "d"},
-        {"title": "Event 5", "color": "#FFBD45", "start": "2023-07-29", "end": "2023-07-30", "resourceId": "e"},
-        {"title": "Event 6", "color": "#FF4B4B", "start": "2023-07-28", "end": "2023-07-20", "resourceId": "f"},
-        {"title": "Event 7", "color": "#FF4B4B", "start": "2023-07-01T08:30:00",
-         "end": "2023-07-01T10:30:00", "resourceId": "a"},
-        {"title": "Event 8", "color": "#3D9DF3", "start": "2023-07-01T07:30:00",
-         "end": "2023-07-01T10:30:00", "resourceId": "b"},
-        {"title": "Event 9", "color": "#3DD56D", "start": "2023-07-02T10:40:00",
-         "end": "2023-07-02T12:30:00", "resourceId": "c"},
-        {"title": "Event 10", "color": "#FF4B4B", "start": "2023-07-15T08:30:00",
-         "end": "2023-07-15T10:30:00", "resourceId": "d"},
-        {"title": "Event 11", "color": "#3DD56D", "start": "2023-07-15T07:30:00",
-         "end": "2023-07-15T10:30:00", "resourceId": "e"},
-        {"title": "Event 12", "color": "#3D9DF3", "start": "2023-07-21T10:40:00",
-         "end": "2023-07-21T12:30:00", "resourceId": "f"},
-        {"title": "Event 13", "color": "#FF4B4B", "start": "2023-07-17T08:30:00",
-         "end": "2023-07-17T10:30:00", "resourceId": "a"},
-        {"title": "Event 14", "color": "#3D9DF3", "start": "2023-07-17T09:30:00",
-         "end": "2023-07-17T11:30:00", "resourceId": "b"},
-        {"title": "Event 15", "color": "#3DD56D", "start": "2023-07-17T10:30:00",
-         "end": "2023-07-17T12:30:00", "resourceId": "c"},
-        {"title": "Event 16", "color": "#FF6C6C", "start": "2023-07-17T13:30:00",
-         "end": "2023-07-17T14:30:00", "resourceId": "d"},
-        {"title": "Event 17", "color": "#FFBD45", "start": "2023-07-17T15:30:00",
-         "end": "2023-07-17T16:30:00", "resourceId": "e"},
+        {
+            "title": "Event 1",
+            "color": "#FF6C6C",
+            "start": "2023-07-03",
+            "end": "2023-07-05",
+            "resourceId": "a",
+        },
+        {
+            "title": "Event 2",
+            "color": "#FFBD45",
+            "start": "2023-07-01",
+            "end": "2023-07-10",
+            "resourceId": "b",
+        },
+        {
+            "title": "Event 3",
+            "color": "#FF4B4B",
+            "start": "2023-07-20",
+            "end": "2023-07-20",
+            "resourceId": "c",
+        },
+        {
+            "title": "Event 4",
+            "color": "#FF6C6C",
+            "start": "2023-07-23",
+            "end": "2023-07-25",
+            "resourceId": "d",
+        },
+        {
+            "title": "Event 5",
+            "color": "#FFBD45",
+            "start": "2023-07-29",
+            "end": "2023-07-30",
+            "resourceId": "e",
+        },
+        {
+            "title": "Event 6",
+            "color": "#FF4B4B",
+            "start": "2023-07-28",
+            "end": "2023-07-20",
+            "resourceId": "f",
+        },
+        {
+            "title": "Event 7",
+            "color": "#FF4B4B",
+            "start": "2023-07-01T08:30:00",
+            "end": "2023-07-01T10:30:00",
+            "resourceId": "a",
+        },
+        {
+            "title": "Event 8",
+            "color": "#3D9DF3",
+            "start": "2023-07-01T07:30:00",
+            "end": "2023-07-01T10:30:00",
+            "resourceId": "b",
+        },
+        {
+            "title": "Event 9",
+            "color": "#3DD56D",
+            "start": "2023-07-02T10:40:00",
+            "end": "2023-07-02T12:30:00",
+            "resourceId": "c",
+        },
+        {
+            "title": "Event 10",
+            "color": "#FF4B4B",
+            "start": "2023-07-15T08:30:00",
+            "end": "2023-07-15T10:30:00",
+            "resourceId": "d",
+        },
+        {
+            "title": "Event 11",
+            "color": "#3DD56D",
+            "start": "2023-07-15T07:30:00",
+            "end": "2023-07-15T10:30:00",
+            "resourceId": "e",
+        },
+        {
+            "title": "Event 12",
+            "color": "#3D9DF3",
+            "start": "2023-07-21T10:40:00",
+            "end": "2023-07-21T12:30:00",
+            "resourceId": "f",
+        },
+        {
+            "title": "Event 13",
+            "color": "#FF4B4B",
+            "start": "2023-07-17T08:30:00",
+            "end": "2023-07-17T10:30:00",
+            "resourceId": "a",
+        },
+        {
+            "title": "Event 14",
+            "color": "#3D9DF3",
+            "start": "2023-07-17T09:30:00",
+            "end": "2023-07-17T11:30:00",
+            "resourceId": "b",
+        },
+        {
+            "title": "Event 15",
+            "color": "#3DD56D",
+            "start": "2023-07-17T10:30:00",
+            "end": "2023-07-17T12:30:00",
+            "resourceId": "c",
+        },
+        {
+            "title": "Event 16",
+            "color": "#FF6C6C",
+            "start": "2023-07-17T13:30:00",
+            "end": "2023-07-17T14:30:00",
+            "resourceId": "d",
+        },
+        {
+            "title": "Event 17",
+            "color": "#FFBD45",
+            "start": "2023-07-17T15:30:00",
+            "end": "2023-07-17T16:30:00",
+            "resourceId": "e",
+        },
     ]
     calendar_resources = [
-        {'id': 'a', 'building': 'Building A', 'title': 'Room A'},
-        {'id': 'b', 'building': 'Building A', 'title': 'Room B'},
-        {'id': 'c', 'building': 'Building B', 'title': 'Room C'},
-        {'id': 'd', 'building': 'Building B', 'title': 'Room D'},
-        {'id': 'e', 'building': 'Building C', 'title': 'Room E'},
-        {'id': 'f', 'building': 'Building C', 'title': 'Room F'},
+        {"id": "a", "building": "Building A", "title": "Room A"},
+        {"id": "b", "building": "Building A", "title": "Room B"},
+        {"id": "c", "building": "Building B", "title": "Room C"},
+        {"id": "d", "building": "Building B", "title": "Room D"},
+        {"id": "e", "building": "Building C", "title": "Room E"},
+        {"id": "f", "building": "Building C", "title": "Room F"},
     ]
 
-    if ("resource" in mode):
-        if (mode == "resource-daygrid"):
+    calendar_options = {
+        "editable": "true",
+        "navLinks": "true",
+        "resources": calendar_resources,
+    }
+
+    if "resource" in mode:
+        if mode == "resource-daygrid":
             calendar_options = {
-                'editable': 'true',
-                'navLinks': 'true',
-                'initialDate': '2023-07-01',
-                'initialView': 'resourceDayGridDay',
-                'resourceGroupField': 'building',
-                'resources': calendar_resources
+                **calendar_options,
+                "initialDate": "2023-07-01",
+                "initialView": "resourceDayGridDay",
+                "resourceGroupField": "building",
             }
-        elif (mode == "resource-timeline"):
+        elif mode == "resource-timeline":
             calendar_options = {
-                'editable': 'true',
-                'headerToolbar': {
-                    'left': 'today prev,next',
-                    'center': 'title',
-                    'right': 'resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth'
+                **calendar_options,
+                "headerToolbar": {
+                    "left": "today prev,next",
+                    "center": "title",
+                    "right": "resourceTimelineDay,resourceTimelineWeek,resourceTimelineMonth",
                 },
-                'navLinks': 'true',
-                'initialDate': '2023-07-01',
-                'initialView': 'resourceTimelineDay',
-                'resourceGroupField': 'building',
-                'resources': calendar_resources
+                "initialDate": "2023-07-01",
+                "initialView": "resourceTimelineDay",
+                "resourceGroupField": "building",
             }
-        elif (mode == "resource-timegrid"):
+        elif mode == "resource-timegrid":
             calendar_options = {
-                'editable': 'true',
-                'navLinks': 'true',
-                'initialDate': '2023-07-01',
-                'initialView': 'resourceTimeGridDay',
-                'resourceGroupField': 'building',
-                'resources': calendar_resources
+                **calendar_options,
+                "initialDate": "2023-07-01",
+                "initialView": "resourceTimeGridDay",
+                "resourceGroupField": "building",
             }
     else:
-        if (mode == "daygrid"):
+        if mode == "daygrid":
             calendar_options = {
-                'editable': 'true',
-                'headerToolbar': {
-                    'left': 'today prev,next',
-                    'center': 'title',
-                    'right': 'dayGridDay,dayGridWeek,dayGridMonth'
+                **calendar_options,
+                "headerToolbar": {
+                    "left": "today prev,next",
+                    "center": "title",
+                    "right": "dayGridDay,dayGridWeek,dayGridMonth",
                 },
-                'navLinks': 'true',
-                'initialDate': '2023-07-01',
-                'initialView': 'dayGridMonth',
+                "initialDate": "2023-07-01",
+                "initialView": "dayGridMonth",
             }
-        elif (mode == "timegrid"):
+        elif mode == "timegrid":
             calendar_options = {
-                'editable': 'true',
-                'navLinks': 'true',
-                'initialView': 'timeGridWeek',
+                **calendar_options,
+                "initialView": "timeGridWeek",
             }
-        elif (mode == "timeline"):
+        elif mode == "timeline":
             calendar_options = {
-                'editable': 'true',
-                'headerToolbar': {
-                    'left': 'today prev,next',
-                    'center': 'title',
-                    'right': 'timelineDay,timelineWeek,timelineMonth'
+                **calendar_options,
+                "headerToolbar": {
+                    "left": "today prev,next",
+                    "center": "title",
+                    "right": "timelineDay,timelineWeek,timelineMonth",
                 },
-                'navLinks': 'true',
-                'initialDate': '2023-07-01',
-                'initialView': 'timelineMonth',
+                "initialDate": "2023-07-01",
+                "initialView": "timelineMonth",
             }
-        elif (mode == "list"):
+        elif mode == "list":
             calendar_options = {
-                'editable': 'true',
-                'navLinks': 'true',
-                'initialDate': '2023-07-01',
-                'initialView': 'listMonth',
+                **calendar_options,
+                "initialDate": "2023-07-01",
+                "initialView": "listMonth",
             }
-        elif (mode == "multimonth"):
+        elif mode == "multimonth":
             calendar_options = {
-                'editable': 'true',
-                'navLinks': 'true',
-                'initialView': 'multiMonthYear',
+                **calendar_options,
+                "initialView": "multiMonthYear",
             }
 
-    state = calendar(events=st.session_state.get('events', events),
-                     options=calendar_options, key=mode)
+    state = calendar(
+        events=st.session_state.get("events", events),
+        options=calendar_options,
+        key=mode,
+    )
 
-    if 'eventsSet' in state:
-        st.session_state['events'] = state['eventsSet']
+    if state.get("eventsSet") is not None:
+        st.session_state["events"] = state["eventsSet"]
 
     st.write(state)
+
+    st.markdown("## API reference")
+    st.help(calendar)
