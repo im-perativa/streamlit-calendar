@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.6.0](https://github.com/im-perativa/streamlit-calendar/compare/v0.5.0...v0.6.0) (2023-10-07)
+
+
+### Features
+
+* add css override ([df4a49a](https://github.com/im-perativa/streamlit-calendar/commit/df4a49abc6c02603a4f49714389ec24259dd1ef9))
+
 ## [0.5.0](https://github.com/im-perativa/streamlit-calendar/compare/v0.4.0...v0.5.0) (2023-08-30)
 
 
