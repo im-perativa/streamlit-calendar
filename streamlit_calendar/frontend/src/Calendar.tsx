@@ -17,6 +17,7 @@ import {
   StreamlitComponentBase,
   withStreamlitConnection,
 } from "streamlit-component-lib"
+import styled from "styled-components"
 import "./Calendar.css"
 
 interface State {
@@ -26,10 +27,14 @@ interface State {
   eventsSet: any
 }
 
+const FullCalendarWrapper = styled.div<{ $customCSS?: string }>`
+  ${(props) => props.$customCSS}
+`
 class Calendar extends StreamlitComponentBase<State> {
   public render = (): ReactNode => {
     const events = this.props.args["events"]
     const options = this.props.args["options"]
+    const customCSS = this.props.args["custom_css"]
     const licenseKey = this.props.args["license_key"]
 
     const plugins = [
@@ -46,16 +51,18 @@ class Calendar extends StreamlitComponentBase<State> {
     ]
 
     return (
-      <FullCalendar
-        plugins={plugins}
-        initialEvents={events}
-        schedulerLicenseKey={licenseKey}
-        dateClick={this.handleDateClick}
-        eventClick={this.handleEventClick}
-        eventChange={this.handleEventChange}
-        eventsSet={this.handleEventsSet}
-        {...options}
-      />
+      <FullCalendarWrapper $customCSS={customCSS}>
+        <FullCalendar
+          plugins={plugins}
+          initialEvents={events}
+          schedulerLicenseKey={licenseKey}
+          dateClick={this.handleDateClick}
+          eventClick={this.handleEventClick}
+          eventChange={this.handleEventChange}
+          eventsSet={this.handleEventsSet}
+          {...options}
+        />
+      </FullCalendarWrapper>
     )
   }
 

@@ -47,6 +47,7 @@ else:
 def calendar(
     events=[],
     options={},
+    custom_css="",
     license_key="CC-Attribution-NonCommercial-NoDerivatives",
     key=None,
 ):
@@ -60,6 +61,9 @@ def calendar(
     options: dict
         Dictionary of calendar options. For complete options,
         check out: https://fullcalendar.io/docs
+    custom_css: string
+        Custom CSS to customize the style of FullCalendar. For more information,
+        check out: https://fullcalendar.io/docs/css-customization
     license_key: str
         An optional license key of FullCalendar. The package will use
         evaluation version which is licensed under a Creative Commons
@@ -67,7 +71,7 @@ def calendar(
         nor use in commercial production websites or products if
         no license_key is provided.
     key: str or None
-        An optional key that uniquely identifies this component. If this is
+        An optional key that uniquely identifies this component. If this set to
         None, and the component's arguments are changed, the component will
         be re-mounted in the Streamlit frontend and lose its current state.
 
@@ -84,7 +88,12 @@ def calendar(
     # "default" is a special argument that specifies the initial return
     # value of the component before the user has interacted with it.
     component_value = _component_func(
-        events=events, options=options, license_key=license_key, key=key, default={}
+        events=events,
+        options=options,
+        custom_css=custom_css,
+        license_key=license_key,
+        key=key,
+        default={},
     )
 
     # We could modify the value returned from the component if we wanted.
@@ -101,7 +110,11 @@ if not _RELEASE:
     st.set_page_config(page_title="Demo for streamlit-calendar", page_icon="📆")
 
     st.markdown(
-        "## Demo for [streamlit-calendar](https://github.com/im-perativa/streamlit-calendar)"
+        "## Demo for [streamlit-calendar](https://github.com/im-perativa/streamlit-calendar) 📆"
+    )
+
+    st.markdown(
+        "[![](https://img.shields.io/github/stars/im-perativa/streamlit-calendar?style=social)](https://github.com/im-perativa/streamlit-calendar)"
     )
 
     mode = st.selectbox(
@@ -324,6 +337,20 @@ if not _RELEASE:
     state = calendar(
         events=st.session_state.get("events", events),
         options=calendar_options,
+        custom_css="""
+        .fc-event-past {
+            opacity: 0.8;
+        }
+        .fc-event-time {
+            font-style: italic;
+        }
+        .fc-event-title {
+            font-weight: 700;
+        }
+        .fc-toolbar-title {
+            font-size: 2rem;
+        }
+        """,
         key=mode,
     )
 
