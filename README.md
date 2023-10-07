@@ -7,7 +7,7 @@
 [![GitHub Workflow Status](https://img.shields.io/github/actions/workflow/status/im-perativa/streamlit-calendar/ci.yml)](https://github.com/im-perativa/streamlit-calendar/actions)
 [![Code style: Black](https://img.shields.io/badge/code%20style-Black-000000.svg)](https://github.com/psf/black)
 
-**A Streamlit component to show calendar view using [FullCalendar](https://fullcalendar.io/) with support for Streamlit light/dark theme**
+**A Streamlit component to show calendar view using [FullCalendar](https://fullcalendar.io/) with support for Streamlit light/dark theme, callbacks, and custom CSS**
 
 ## 🌏Demo [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://calendar-component.streamlit.app/)
 
@@ -62,9 +62,23 @@ calendar_events = [
         "end": "2023-07-31T12:30:00",
         "resourceId": "a",
     },
+    custom_css="""
+        .fc-event-past {
+            opacity: 0.8;
+        }
+        .fc-event-time {
+            font-style: italic;
+        }
+        .fc-event-title {
+            font-weight: 700;
+        }
+        .fc-toolbar-title {
+            font-size: 2rem;
+        }
+    """,
 ]
 
-calendar = calendar(events=calendar_events, options=calendar_options)
+calendar = calendar(events=calendar_events, options=calendar_options, custom_css=custom_css)
 st.write(calendar)
 ```
 
