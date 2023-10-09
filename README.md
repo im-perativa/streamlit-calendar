@@ -61,29 +61,30 @@ calendar_events = [
         "start": "2023-07-31T10:40:00",
         "end": "2023-07-31T12:30:00",
         "resourceId": "a",
-    },
-    custom_css="""
-        .fc-event-past {
-            opacity: 0.8;
-        }
-        .fc-event-time {
-            font-style: italic;
-        }
-        .fc-event-title {
-            font-weight: 700;
-        }
-        .fc-toolbar-title {
-            font-size: 2rem;
-        }
-    """,
+    }
 ]
+custom_css="""
+    .fc-event-past {
+        opacity: 0.8;
+    }
+    .fc-event-time {
+        font-style: italic;
+    }
+    .fc-event-title {
+        font-weight: 700;
+    }
+    .fc-toolbar-title {
+        font-size: 2rem;
+    }
+"""
 
 calendar = calendar(events=calendar_events, options=calendar_options, custom_css=custom_css)
 st.write(calendar)
 ```
 
 For complete `event` object properties, check out: [https://fullcalendar.io/docs/event-object](https://fullcalendar.io/docs/event-object)  
-For complete `options` object properties, check out: [https://fullcalendar.io/docs](https://fullcalendar.io/docs)
+For complete `options` object properties, check out: [https://fullcalendar.io/docs](https://fullcalendar.io/docs)  
+For complete `custom_css` options, check out: [https://fullcalendar.io/docs/css-customization](https://fullcalendar.io/docs/css-customization)
 
 ## 🛠️Development
 

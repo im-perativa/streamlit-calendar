@@ -78,7 +78,7 @@ def calendar(
     Returns
     -------
     dict
-        State value from eventClick and dateClick callback
+        State value from dateClick, eventClick, eventChange and eventsSet callback
 
     """
     # Call through to our private component function. Arguments we pass here
