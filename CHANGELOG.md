@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.7.0](https://github.com/im-perativa/streamlit-calendar/compare/v0.6.0...v0.7.0) (2023-11-23)
+
+
+### Features
+
+* add enabled callback configuration ([a8de8c9](https://github.com/im-perativa/streamlit-calendar/commit/a8de8c944eff6895711a443cd1385e3d81914a0e))
+
 ## [0.6.0](https://github.com/im-perativa/streamlit-calendar/compare/v0.5.0...v0.6.0) (2023-10-07)
 
 
