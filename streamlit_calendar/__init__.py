@@ -48,6 +48,7 @@ def calendar(
     events=[],
     options={},
     custom_css="",
+    callbacks=["dateClick", "eventClick", "eventChange", "eventsSet"],
     license_key="CC-Attribution-NonCommercial-NoDerivatives",
     key=None,
 ):
@@ -70,6 +71,9 @@ def calendar(
         license that does not allow distribution of source code modifications
         nor use in commercial production websites or products if
         no license_key is provided.
+    callbacks: str[]
+        List of callback to enable. Set to empty list to disable all callbacks.
+        List may contain 'dateClick', 'eventClick', 'eventChange', 'eventsSet'
     key: str or None
         An optional key that uniquely identifies this component. If this set to
         None, and the component's arguments are changed, the component will
@@ -91,6 +95,7 @@ def calendar(
         events=events,
         options=options,
         custom_css=custom_css,
+        callbacks=callbacks,
         license_key=license_key,
         key=key,
         default={},

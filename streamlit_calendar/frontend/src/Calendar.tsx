@@ -35,6 +35,7 @@ class Calendar extends StreamlitComponentBase<State> {
     const events = this.props.args["events"]
     const options = this.props.args["options"]
     const customCSS = this.props.args["custom_css"]
+    const callbacks = this.props.args["callbacks"]
     const licenseKey = this.props.args["license_key"]
 
     const plugins = [
@@ -56,10 +57,18 @@ class Calendar extends StreamlitComponentBase<State> {
           plugins={plugins}
           initialEvents={events}
           schedulerLicenseKey={licenseKey}
-          dateClick={this.handleDateClick}
-          eventClick={this.handleEventClick}
-          eventChange={this.handleEventChange}
-          eventsSet={this.handleEventsSet}
+          dateClick={
+            callbacks.includes("dateClick") ? this.handleDateClick : null
+          }
+          eventClick={
+            callbacks.includes("eventClick") ? this.handleEventClick : null
+          }
+          eventChange={
+            callbacks.includes("eventChange") ? this.handleEventChange : null
+          }
+          eventsSet={
+            callbacks.includes("eventsSet") ? this.handleEventsSet : null
+          }
           {...options}
         />
       </FullCalendarWrapper>
@@ -86,9 +95,7 @@ class Calendar extends StreamlitComponentBase<State> {
         eventChange: null,
         eventsSet: null,
       }),
-      () => {
-        Streamlit.setComponentValue(this.state)
-      }
+      () => Streamlit.setComponentValue(this.state)
     )
   }
 
@@ -99,9 +106,7 @@ class Calendar extends StreamlitComponentBase<State> {
         dateClick: null,
         eventClick: null,
       }),
-      () => {
-        Streamlit.setComponentValue(this.state)
-      }
+      () => Streamlit.setComponentValue(this.state)
     )
   }
 
