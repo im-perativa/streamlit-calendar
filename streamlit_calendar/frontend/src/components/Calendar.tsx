@@ -121,7 +121,10 @@ const CalendarFC: React.FC<Props> = ({
 
   const handleEventsSet = (events: EventApi[]) => {
     const eventsSet: EventsSetValue = {
-      events: events.map((event) => event.toJSON()),
+      events: events.map((event) => ({
+        ...event.toJSON(),
+        resourceId: event.getResources()[0]?.id,
+      })),
     }
 
     const componentValue: EventsSetComponentValue = {

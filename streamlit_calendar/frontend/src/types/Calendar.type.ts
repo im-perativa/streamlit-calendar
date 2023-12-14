@@ -37,6 +37,7 @@ export type EventValue = {
   textColor?: string
   classNames?: string[]
   extendedProps?: Record<string, unknown>
+  resourceId?: string
 }
 
 export type DateClickValue = {
