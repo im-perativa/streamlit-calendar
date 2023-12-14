@@ -57,13 +57,13 @@ const FullCalendarWrapper = styled.div<{ $customCSS?: string }>`
 type Props = ComponentProps<{
   events?: EventSourceInput
   options?: CalendarOptions
-  customCSS?: string
+  custom_css?: string
   callbacks?: Callback[]
-  licenseKey?: string
+  license_key?: string
 }>
 
 const CalendarFC: React.FC<Props> = ({
-  args: { events, options, customCSS, callbacks, licenseKey },
+  args: { events, options, custom_css, callbacks, license_key },
 }) => {
   const getViewValue = (view: ViewApi): ViewValue => ({
     type: view.type,
@@ -137,11 +137,11 @@ const CalendarFC: React.FC<Props> = ({
   }, [])
 
   return (
-    <FullCalendarWrapper $customCSS={customCSS}>
+    <FullCalendarWrapper $customCSS={custom_css}>
       <FullCalendar
         plugins={ENABLED_PLUGINS}
         initialEvents={events}
-        schedulerLicenseKey={licenseKey}
+        schedulerLicenseKey={license_key}
         dateClick={
           callbacks?.includes("dateClick") ? handleDateClick : undefined
         }
