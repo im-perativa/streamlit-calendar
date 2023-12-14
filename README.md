@@ -190,6 +190,7 @@ Source: [https://fullcalendar.io/docs/event-object](https://fullcalendar.io/docs
 | borderColor     |   `string`   | The `eventBorderColor` override for this specific event.                                                                                                                                   |
 | textColor       |   `string`   | The `eventTextColor` override for this specific event.                                                                                                                                     |
 | extendedProps   | `Dictionary` | A plain object holding miscellaneous other properties specified during parsing. Receives properties in the explicitly given `extendedProps` hash as well as other non-standard properties. |
+| resourceId      |   `string`   | The unique string identifier for the resource of the event (if any).                                                                                                                       |
 
 #### <a name="ResourceApi"></a>`Resource`
 
