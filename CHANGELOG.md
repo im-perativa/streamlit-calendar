@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.0](https://github.com/im-perativa/streamlit-calendar/compare/v0.7.0...v1.0.0) (2023-12-15)
+
+
+### ⚠ BREAKING CHANGES
+
+* **frontend:** some exposed properties will no longer be available
+
+### Features
+
+* **frontend:** component value payload improvements ([5abf62d](https://github.com/im-perativa/streamlit-calendar/commit/5abf62d1e93588b939e487056dcae33df92a1923))
+
+
+### Bug Fixes
+
+* **frontend:** add missing `resourceId` payload from `handleEventsSet` callback ([360dadb](https://github.com/im-perativa/streamlit-calendar/commit/360dadbe9f913f63341cf5993c700c7a34df5aad))
+* **frontend:** refactor incorrect props ([b46b5ae](https://github.com/im-perativa/streamlit-calendar/commit/b46b5aeeaf61c882aa03edca90f35ca89f10d4e4))
+
 ## [0.7.0](https://github.com/im-perativa/streamlit-calendar/compare/v0.6.0...v0.7.0) (2023-11-23)
 
 
