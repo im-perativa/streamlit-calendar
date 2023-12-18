@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.1](https://github.com/im-perativa/streamlit-calendar/compare/v1.0.0...v1.0.1) (2023-12-18)
+
+
+### Bug Fixes
+
+* **deps:** update fullcalendar monorepo to v6.1.10 ([f0a5a0e](https://github.com/im-perativa/streamlit-calendar/commit/f0a5a0e5f3f2b7c7756a182490dd1f43499c940b))
+
 ## [1.0.0](https://github.com/im-perativa/streamlit-calendar/compare/v0.7.0...v1.0.0) (2023-12-15)
 
 
