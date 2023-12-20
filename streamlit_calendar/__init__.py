@@ -48,7 +48,7 @@ def calendar(
     events=[],
     options={},
     custom_css="",
-    callbacks=["dateClick", "eventClick", "eventChange", "eventsSet"],
+    callbacks=["dateClick", "eventClick", "eventChange", "eventsSet", "select"],
     license_key="CC-Attribution-NonCommercial-NoDerivatives",
     key=None,
 ):
@@ -74,6 +74,7 @@ def calendar(
     callbacks: str[]
         List of callback to enable. Set to empty list to disable all callbacks.
         List may contain 'dateClick', 'eventClick', 'eventChange', 'eventsSet'
+        and 'select'
     key: str or None
         An optional key that uniquely identifies this component. If this set to
         None, and the component's arguments are changed, the component will
@@ -82,7 +83,8 @@ def calendar(
     Returns
     -------
     dict
-        State value from dateClick, eventClick, eventChange and eventsSet callback
+        State value from dateClick, eventClick, eventChange, eventsSet
+        and select callback
 
     """
     # Call through to our private component function. Arguments we pass here

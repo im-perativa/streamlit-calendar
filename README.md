@@ -169,6 +169,20 @@ Source: [https://fullcalendar.io/docs/eventsSet](https://fullcalendar.io/docs/ev
 | -------- | :--------------------: | ------------------------------------------------------ |
 | events   | [`Event[]`](#EventApi) | An array of events. It contains every event in memory. |
 
+#### `select`
+
+Triggered when a date/time selection is made.
+
+Source: [https://fullcalendar.io/docs/select-callback](https://fullcalendar.io/docs/select-callback)
+
+| Property |            Type            | Description                                                                                                          |
+| -------- | :------------------------: | -------------------------------------------------------------------------------------------------------------------- |
+| allDay   |         `boolean`          | `true` or `false` whether the selection happened on all-day cells.                                                   |
+| start    |          `string`          | a date indicating the beginning of the selection in [ISO8601 string](https://en.wikipedia.org/wiki/ISO_8601) format. |
+| end.     |          `string`          | a date indicating the end of the selection in [ISO8601 string](https://en.wikipedia.org/wiki/ISO_8601) format.       |
+| view     |     [`View`](#ViewApi)     | The current view.                                                                                                    |
+| resource | [`Resource`](#ResourceApi) | If the current view is a resource-view, the resource that owns this selection.                                       |
+
 ### Types
 
 #### <a name="EventApi"></a>`Event`
