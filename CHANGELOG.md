@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.0](https://github.com/im-perativa/streamlit-calendar/compare/v1.0.1...v1.1.0) (2023-12-21)
+
+
+### Features
+
+* implement fullcalendar 'select' callback ([#23](https://github.com/im-perativa/streamlit-calendar/issues/23)) ([7531e70](https://github.com/im-perativa/streamlit-calendar/commit/7531e70a8197868a64169c49b4d2d68c0b0d450f))
+
 ## [1.0.1](https://github.com/im-perativa/streamlit-calendar/compare/v1.0.0...v1.0.1) (2023-12-18)
 
 
