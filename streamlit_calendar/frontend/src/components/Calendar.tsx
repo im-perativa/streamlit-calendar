@@ -168,9 +168,6 @@ const CalendarFC: React.FC<Props> = ({
         dateClick={
           callbacks?.includes("dateClick") ? handleDateClick : undefined
         }
-        select={
-          callbacks?.includes("select") ? handleSelect : undefined
-        }
         eventClick={
           callbacks?.includes("eventClick") ? handleEventClick : undefined
         }
@@ -179,6 +176,9 @@ const CalendarFC: React.FC<Props> = ({
         }
         eventsSet={
           callbacks?.includes("eventsSet") ? handleEventsSet : undefined
+        }
+        select={
+          callbacks?.includes("select") ? handleSelect : undefined
         }
         {...options}
       />
