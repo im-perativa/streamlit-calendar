@@ -62,6 +62,14 @@ export type EventsSetValue = {
   events: EventValue[]
 }
 
+export type SelectValue = {
+  allDay: boolean
+  start: string;
+  end: string;
+  view: ViewValue
+  resource?: ResourceValue
+}
+
 export type DateClickComponentValue = {
   callback: "dateClick"
   dateClick: DateClickValue
@@ -82,10 +90,16 @@ export type EventsSetComponentValue = {
   eventsSet: EventsSetValue
 }
 
+export type SelectComponentValue = {
+  callback: "select"
+  select: SelectValue
+}
+
 export type ComponentValue =
   | DateClickComponentValue
   | EventClickComponentValue
   | EventChangeComponentValue
   | EventsSetComponentValue
+  | SelectComponentValue
 
 export type Callback = ComponentValue["callback"]

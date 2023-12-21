@@ -14,6 +14,7 @@ import timelinePlugin from "@fullcalendar/timeline" // premium
 
 import {
   CalendarOptions,
+  DateSelectArg,
   EventApi,
   EventChangeArg,
   EventClickArg,
@@ -34,6 +35,8 @@ import {
   EventClickValue,
   EventsSetComponentValue,
   EventsSetValue,
+  SelectComponentValue,
+  SelectValue,
   ViewValue,
 } from "../types/Calendar.type"
 
@@ -135,6 +138,23 @@ const CalendarFC: React.FC<Props> = ({
     Streamlit.setComponentValue(componentValue)
   }
 
+  const handleSelect = (arg: DateSelectArg) => {
+    const select: SelectValue = {
+      allDay: arg.allDay,
+      start: arg.start.toISOString(),
+      end: arg.end.toISOString(),
+      view: getViewValue(arg.view),
+      resource: arg.resource?.toJSON(),
+    }
+
+    const componentValue: SelectComponentValue = {
+      callback: "select",
+      select,
+    }
+
+    Streamlit.setComponentValue(componentValue)
+  }
+
   React.useEffect(() => {
     Streamlit.setFrameHeight()
   }, [])
@@ -156,6 +176,9 @@ const CalendarFC: React.FC<Props> = ({
         }
         eventsSet={
           callbacks?.includes("eventsSet") ? handleEventsSet : undefined
+        }
+        select={
+          callbacks?.includes("select") ? handleSelect : undefined
         }
         {...options}
       />
