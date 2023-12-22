@@ -9,6 +9,8 @@
 
 **A Streamlit component to show calendar view using [FullCalendar](https://fullcalendar.io/) with support for Streamlit light/dark theme, callbacks, and custom CSS**
 
+<a href="https://www.buymeacoffee.com/imperativa" target="_blank"><img src=" https://cdn.buymeacoffee.com/buttons/v2/arial-orange.png" alt="Buy Me A Coffee" height="28" width="105"></a>
+
 ## 🌏Demo [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://calendar-component.streamlit.app/)
 
 ![](https://github.com/im-perativa/streamlit-calendar-demo/blob/main/demo.gif)
@@ -25,6 +27,8 @@ pip install streamlit-calendar
 from streamlit_calendar import calendar
 
 calendar_options = {
+    "editable": "true",
+    "selectable": "true",
     "headerToolbar": {
         "left": "today prev,next",
         "center": "title",
