@@ -9,7 +9,7 @@
 
 **A Streamlit component to show calendar view using [FullCalendar](https://fullcalendar.io/) with support for Streamlit light/dark theme, callbacks, and custom CSS**
 
-<a href="https://www.buymeacoffee.com/imperativa" target="_blank"><img src=" https://cdn.buymeacoffee.com/buttons/v2/arial-orange.png" alt="Buy Me A Coffee" height="28" width="105"></a>
+<a href="https://www.buymeacoffee.com/imperativa" target="_blank"><img src="https://cdn.buymeacoffee.com/buttons/v2/arial-orange.png" alt="Buy Me A Coffee" height="28" width="105"></a>
 
 ## 🌏Demo [![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://calendar-component.streamlit.app/)
 
