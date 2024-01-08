@@ -140,6 +140,19 @@ Source: [https://fullcalendar.io/docs/dateClick](https://fullcalendar.io/docs/da
 | view     |     [`View`](#ViewApi)     | The current view.                                                                                   |
 | resource | [`Resource`](#ResourceApi) | If the current view is a resource-view, the resource that owns this date.                           |
 
+#### `datesSet`
+
+Called after the calendar’s date range has been initially set or changed in some way and the DOM has been updated.
+
+Source: [https://fullcalendar.io/docs/datesSet](https://fullcalendar.io/docs/datesSet)
+
+| Property |            Type            | Description                                                                                                                             |
+| -------- | :------------------------: | --------------------------------------------------------------------------------------------------------------------------------------- |
+| start    |          `string`          | a date for the beginning of the range the calendar needs events for in [ISO8601 string](https://en.wikipedia.org/wiki/ISO_8601) format. |
+| end      |          `string`          | a date for the end of the range the calendar needs events for in [ISO8601 string](https://en.wikipedia.org/wiki/ISO_8601) format.       |
+| timeZone |          `string`          | the exact value of the calendar’s timeZone setting                                                                                    |
+| view     |     [`View`](#ViewApi)     | The current view.                                                                                                                       |
+
 #### `eventClick`
 
 Triggered when the user clicks an event.
