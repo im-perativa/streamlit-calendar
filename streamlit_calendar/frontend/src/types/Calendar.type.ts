@@ -47,6 +47,13 @@ export type DateClickValue = {
   resource?: ResourceValue
 }
 
+export type DatesSetValue = {
+  start: string
+  end: string
+  timeZone: string
+  view: ViewValue
+}
+
 export type EventClickValue = {
   event: EventValue
   view: ViewValue
@@ -75,6 +82,11 @@ export type DateClickComponentValue = {
   dateClick: DateClickValue
 }
 
+export type DatesSetComponentValue = {
+  callback: "datesSet"
+  datesSet: DatesSetValue
+}
+
 export type EventClickComponentValue = {
   callback: "eventClick"
   eventClick: EventClickValue
@@ -97,6 +109,7 @@ export type SelectComponentValue = {
 
 export type ComponentValue =
   | DateClickComponentValue
+  | DatesSetComponentValue
   | EventClickComponentValue
   | EventChangeComponentValue
   | EventsSetComponentValue

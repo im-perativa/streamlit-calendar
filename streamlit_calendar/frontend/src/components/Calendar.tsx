@@ -15,6 +15,7 @@ import timelinePlugin from "@fullcalendar/timeline" // premium
 import {
   CalendarOptions,
   DateSelectArg,
+  DatesSetArg,
   EventApi,
   EventChangeArg,
   EventClickArg,
@@ -29,6 +30,8 @@ import {
   Callback,
   DateClickComponentValue,
   DateClickValue,
+  DatesSetComponentValue,
+  DatesSetValue,
   EventChangeComponentValue,
   EventChangeValue,
   EventClickComponentValue,
@@ -88,6 +91,22 @@ const CalendarFC: React.FC<Props> = ({
     const componentValue: DateClickComponentValue = {
       callback: "dateClick",
       dateClick,
+    }
+
+    Streamlit.setComponentValue(componentValue)
+  }
+
+  const handleDatesSet = (arg: DatesSetArg) => {
+    const datesSet: DatesSetValue = {
+      start: arg.start.toISOString(),
+      end: arg.end.toISOString(),
+      timeZone: arg.timeZone,
+      view: getViewValue(arg.view),
+    }
+
+    const componentValue: DatesSetComponentValue = {
+      callback: "datesSet",
+      datesSet,
     }
 
     Streamlit.setComponentValue(componentValue)
@@ -167,6 +186,9 @@ const CalendarFC: React.FC<Props> = ({
         schedulerLicenseKey={license_key}
         dateClick={
           callbacks?.includes("dateClick") ? handleDateClick : undefined
+        }
+        datesSet={
+          callbacks?.includes("datesSet") ? handleDatesSet : undefined
         }
         eventClick={
           callbacks?.includes("eventClick") ? handleEventClick : undefined
