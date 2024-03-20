@@ -1,3 +1,5 @@
+import { RRule, RRuleSet, rrulestr } from 'rrule';
+
 export type ViewValue = {
   type: string
   title: string
@@ -36,6 +38,10 @@ export type EventValue = {
   borderColor?: string
   textColor?: string
   classNames?: string[]
+
+  // RRule plugin related fields
+  rrule?: RRule | RRuleSet | string; // You can specify the rrule property as an object, or specify rrule as a string
+
   extendedProps?: Record<string, unknown>
   resourceId?: string
 }

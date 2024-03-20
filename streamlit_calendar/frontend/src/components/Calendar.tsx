@@ -11,6 +11,7 @@ import resourceTimeGridPlugin from "@fullcalendar/resource-timegrid" // premium
 import resourceTimelinePlugin from "@fullcalendar/resource-timeline" // premium
 import timeGridPlugin from "@fullcalendar/timegrid"
 import timelinePlugin from "@fullcalendar/timeline" // premium
+import rrulePlugin from "@fullcalendar/rrule"; //
 
 import {
   CalendarOptions,
@@ -51,6 +52,7 @@ const ENABLED_PLUGINS = [
   resourceTimelinePlugin,
   timeGridPlugin,
   timelinePlugin,
+  rrulePlugin,
 ]
 
 const FullCalendarWrapper = styled.div<{ $customCSS?: string }>`
