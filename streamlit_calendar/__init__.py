@@ -259,6 +259,19 @@ if not _RELEASE:
             "end": "2023-07-17T16:30:00",
             "resourceId": "e",
         },
+        {
+            "title": "Event 18",
+            "color": "#3D9DF3",
+            "duration": "00:40",
+            "resourceId": "a",
+            "rrule": {
+                        "freq": 'weekly',
+                        "byweekday": [ 'tu', 'we' ],
+                        "interval": 1,
+                        "dtstart": '2023-07-04T10:00:00', # will also accept '20120201T103000'
+                        "until": '2023-07-20' # will also accept '20120201'
+                    }
+        },
     ]
     calendar_resources = [
         {"id": "a", "building": "Building A", "title": "Room A"},
