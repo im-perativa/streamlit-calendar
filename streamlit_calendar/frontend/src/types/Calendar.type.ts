@@ -1,5 +1,3 @@
-import { RRule, RRuleSet, rrulestr } from 'rrule';
-
 export type ViewValue = {
   type: string
   title: string
