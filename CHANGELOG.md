@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.0](https://github.com/im-perativa/streamlit-calendar/compare/v1.1.0...v1.2.0) (2024-03-29)
+
+
+### Features
+
+* support recurring events with rrule plugin ([#29](https://github.com/im-perativa/streamlit-calendar/issues/29)) ([d9f1065](https://github.com/im-perativa/streamlit-calendar/commit/d9f1065319dccaacfc73b3458f94f8fbeb63d0e5))
+
 ## [1.1.0](https://github.com/im-perativa/streamlit-calendar/compare/v1.0.1...v1.1.0) (2023-12-21)
 
 
