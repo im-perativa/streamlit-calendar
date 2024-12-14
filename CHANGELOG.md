@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.2.1](https://github.com/im-perativa/streamlit-calendar/compare/v1.2.0...v1.2.1) (2024-12-14)
+
+
+### Bug Fixes
+
+* add resource id in callback ([#42](https://github.com/im-perativa/streamlit-calendar/issues/42)) ([9337e0c](https://github.com/im-perativa/streamlit-calendar/commit/9337e0ca19c800006aa1a672a8b9e692115b6573))
+
 ## [1.2.0](https://github.com/im-perativa/streamlit-calendar/compare/v1.1.0...v1.2.0) (2024-03-29)
 
 
