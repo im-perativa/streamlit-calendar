@@ -97,7 +97,10 @@ const CalendarFC: React.FC<Props> = ({
 
   const handleEventClick = (arg: EventClickArg) => {
     const eventClick: EventClickValue = {
-      event: arg.event.toJSON(),
+      event: {
+        ...arg.event.toJSON(),
+        resourceId: arg.event.getResources()[0]?.id,
+      },
       view: getViewValue(arg.view),
     }
 
@@ -111,8 +114,14 @@ const CalendarFC: React.FC<Props> = ({
 
   const handleEventChange = (arg: EventChangeArg) => {
     const eventChange: EventChangeValue = {
-      oldEvent: arg.oldEvent.toJSON(),
-      event: arg.event.toJSON(),
+      oldEvent: {
+        ...arg.oldEvent.toJSON(),
+        resourceId: arg.oldEvent.getResources()[0]?.id,
+      },
+      event: {
+        ...arg.event.toJSON(),
+        resourceId: arg.event.getResources()[0]?.id,
+      },
       relatedEvents: arg.relatedEvents.map((related) => related.toJSON()),
     }
 

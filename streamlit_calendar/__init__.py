@@ -283,10 +283,10 @@ if not _RELEASE:
     ]
 
     calendar_options = {
-        "editable": "true",
-        "navLinks": "true",
+        "editable": True,
+        "navLinks": True,
         "resources": calendar_resources,
-        "selectable": "true",
+        "selectable": True,
     }
 
     if "resource" in mode:

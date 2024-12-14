@@ -24,11 +24,12 @@ pip install streamlit-calendar
 ## 💻Usage
 
 ```python
+import streamlit as st
 from streamlit_calendar import calendar
 
 calendar_options = {
-    "editable": "true",
-    "selectable": "true",
+    "editable": True,
+    "selectable": True,
     "headerToolbar": {
         "left": "today prev,next",
         "center": "title",
