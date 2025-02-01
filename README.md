@@ -83,7 +83,12 @@ custom_css="""
     }
 """
 
-calendar = calendar(events=calendar_events, options=calendar_options, custom_css=custom_css)
+calendar = calendar(
+    events=calendar_events,
+    options=calendar_options,
+    custom_css=custom_css,
+    key='calendar', # Assign a widget key to prevent state loss
+    )
 st.write(calendar)
 ```
 
@@ -91,9 +96,13 @@ st.write(calendar)
 
 ### Initialization Args
 
-For complete `event` object properties, check out: [https://fullcalendar.io/docs/event-object](https://fullcalendar.io/docs/event-object)  
+For complete `events` object properties, check out: [https://fullcalendar.io/docs/event-object](https://fullcalendar.io/docs/event-object)  
 For complete `options` object properties, check out: [https://fullcalendar.io/docs](https://fullcalendar.io/docs)  
-For complete `custom_css` options, check out: [https://fullcalendar.io/docs/css-customization](https://fullcalendar.io/docs/css-customization)
+For complete `custom_css` options, check out: [https://fullcalendar.io/docs/css-customization](https://fullcalendar.io/docs/css-customization)  
+For information about `key`, check out: [Streamlit Widget Behavior](https://docs.streamlit.io/develop/concepts/architecture/widget-behavior)  
+
+> [!IMPORTANT]
+> If using `st.session_state["events"]` as `events` (see [demo](https://github.com/im-perativa/streamlit-calendar-demo)), provide a string value for `key` to prevent unintended calendar refreshes because of state loss.
 
 ### Component Values
 
