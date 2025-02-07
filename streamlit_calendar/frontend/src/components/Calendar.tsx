@@ -22,7 +22,7 @@ import {
   EventSourceInput,
   ViewApi,
 } from "@fullcalendar/core"
-import React from "react"
+import React, { useRef } from "react"
 import { Streamlit, withStreamlitConnection } from "streamlit-component-lib"
 import { ComponentProps } from "streamlit-component-lib/dist/StreamlitReact"
 import styled from "styled-components"
@@ -133,14 +133,18 @@ const CalendarFC: React.FC<Props> = ({
     Streamlit.setComponentValue(componentValue)
   }
 
+  const calendarRef = useRef<FullCalendar>(null)
+
   const handleEventsSet = (events: EventApi[]) => {
     const eventsSet: EventsSetValue = {
       events: events.map((event) => ({
         ...event.toJSON(),
         resourceId: event.getResources()[0]?.id,
       })),
-    }
-
+      ...(calendarRef.current?.getApi() && {
+        view: getViewValue(calendarRef.current.getApi().view)
+      })
+    };
     const componentValue: EventsSetComponentValue = {
       callback: "eventsSet",
       eventsSet,
@@ -173,6 +177,7 @@ const CalendarFC: React.FC<Props> = ({
   return (
     <FullCalendarWrapper $customCSS={custom_css}>
       <FullCalendar
+        ref={calendarRef}
         plugins={ENABLED_PLUGINS}
         initialEvents={events}
         schedulerLicenseKey={license_key}
