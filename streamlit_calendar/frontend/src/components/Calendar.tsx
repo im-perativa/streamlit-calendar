@@ -70,6 +70,8 @@ type Props = ComponentProps<{
 const CalendarFC: React.FC<Props> = ({
   args: { events, options, custom_css, callbacks, license_key },
 }) => {
+  const calendarRef = useRef<FullCalendar>(null)
+  
   const getViewValue = (view: ViewApi): ViewValue => ({
     type: view.type,
     title: view.title,
@@ -78,7 +80,7 @@ const CalendarFC: React.FC<Props> = ({
     currentStart: view.currentStart.toISOString(),
     currentEnd: view.currentEnd.toISOString(),
   })
-
+  
   const handleDateClick = (arg: DateClickArg) => {
     const dateClick: DateClickValue = {
       allDay: arg.allDay,
@@ -123,6 +125,9 @@ const CalendarFC: React.FC<Props> = ({
         resourceId: arg.event.getResources()[0]?.id,
       },
       relatedEvents: arg.relatedEvents.map((related) => related.toJSON()),
+      ...(calendarRef.current?.getApi() && {
+        view: getViewValue(calendarRef.current.getApi().view)
+      })
     }
 
     const componentValue: EventChangeComponentValue = {
@@ -132,8 +137,6 @@ const CalendarFC: React.FC<Props> = ({
 
     Streamlit.setComponentValue(componentValue)
   }
-
-  const calendarRef = useRef<FullCalendar>(null)
 
   const handleEventsSet = (events: EventApi[]) => {
     const eventsSet: EventsSetValue = {

@@ -56,6 +56,7 @@ export type EventChangeValue = {
   oldEvent: EventValue
   event: EventValue
   relatedEvents: EventValue[]
+  view?: ViewValue
 }
 
 export type EventsSetValue = {
