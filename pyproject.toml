@@ -6,20 +6,18 @@ authors = ["Muhammad Luqman <im.imperativa@gmail.com>"]
 license = "Apache-2.0"
 readme = "README.md"
 repository = "https://github.com/im-perativa/streamlit-calendar"
-# This is required so the frontend code is properly included in the wheel. 
+# This is required so the frontend code is properly included in the wheel.
 include = ["streamlit_calendar/frontend/build/**/*"]
 keywords = ["streamlit", "streamlit-component"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
-streamlit = "^1.12.0"
+python = "^3.10"
+streamlit = "^1.42.0"
 
-[tool.poetry.dev-dependencies]
+[tool.poetry.group.dev.dependencies]
 watchdog = "^2.1.9"
 black = "^22.6.0"
 isort = "^5.10.1"
-
-[tool.poetry.group.dev.dependencies]
 bandit = "^1.7.5"
 
 [build-system]

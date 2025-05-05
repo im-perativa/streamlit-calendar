@@ -60,6 +60,7 @@ export type EventChangeValue = {
 
 export type EventsSetValue = {
   events: EventValue[]
+  view?: ViewValue
 }
 
 export type SelectValue = {
