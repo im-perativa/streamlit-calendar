@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.0](https://github.com/im-perativa/streamlit-calendar/compare/v1.2.1...v1.3.0) (2025-05-05)
+
+
+### Features
+
+* add view in eventset and eventchange callback ([e78229c](https://github.com/im-perativa/streamlit-calendar/commit/e78229c089d1cf086b001aadde61018a6fa03bc7))
+
 ## [1.2.1](https://github.com/im-perativa/streamlit-calendar/compare/v1.2.0...v1.2.1) (2024-12-14)
 
 
