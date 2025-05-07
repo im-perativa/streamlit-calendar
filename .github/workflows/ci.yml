@@ -12,14 +12,14 @@ jobs:
   Quality:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
         with:
-          python-version: 3.10.14
+          python-version: 3.8.17
       - name: Install Python Poetry
         uses: abatilo/actions-poetry@v2.1.0
         with:
-          poetry-version: 2.0.1
+          poetry-version: 1.5.1
       - name: Configure Poetry
         shell: bash
         run: python -m poetry config virtualenvs.in-project true
@@ -34,15 +34,15 @@ jobs:
     if: github.event_name == 'push' && github.ref == 'refs/heads/master' && !contains(github.event.head_commit.message, 'chore(release):')
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v3
         with:
-          python-version: 3.10.14
+          python-version: 3.8.17
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
       - name: Install Python Poetry
         uses: abatilo/actions-poetry@v2.1.0
         with:
-          poetry-version: 2.0.1
+          poetry-version: 1.5.1
       - name: Build Frontend
         working-directory: ./streamlit_calendar/frontend
         run: |
