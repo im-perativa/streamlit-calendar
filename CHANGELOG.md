@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.3.1](https://github.com/im-perativa/streamlit-calendar/compare/v1.3.0...v1.3.1) (2025-05-07)
+
+
+### Bug Fixes
+
+* include missing build artifact ([45cf68c](https://github.com/im-perativa/streamlit-calendar/commit/45cf68c4a3c82812314bdcffe1eb0ffa62f38ff0))
+* poetry ([9f407c9](https://github.com/im-perativa/streamlit-calendar/commit/9f407c95caf7bc89259d43979d9a83f087c5cedd))
+
 ## [1.3.0](https://github.com/im-perativa/streamlit-calendar/compare/v1.2.1...v1.3.0) (2025-05-05)
 
 
