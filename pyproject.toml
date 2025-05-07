@@ -11,7 +11,7 @@ include = ["streamlit_calendar/frontend/build/**/*"]
 keywords = ["streamlit", "streamlit-component"]
 
 [tool.poetry.dependencies]
-python = "^3.8"
+python = "^3.9"
 streamlit = "^1.12.0"
 
 [tool.poetry.dev-dependencies]
