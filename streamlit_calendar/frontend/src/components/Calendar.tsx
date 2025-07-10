@@ -182,7 +182,7 @@ const CalendarFC: React.FC<Props> = ({
       <FullCalendar
         ref={calendarRef}
         plugins={ENABLED_PLUGINS}
-        initialEvents={events}
+        events={events}
         schedulerLicenseKey={license_key}
         dateClick={
           callbacks?.includes("dateClick") ? handleDateClick : undefined
