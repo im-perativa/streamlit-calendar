@@ -99,14 +99,20 @@ const CalendarFC: React.FC<Props> = ({
     Streamlit.setComponentValue(componentValue)
   }
 
+  // Use a WeakMap to associate elements with their listeners
+  const mouseEnterListeners = React.useRef(new WeakMap<HTMLElement, EventListener>()).current;
+
   // This is called by FullCalendar for each event after it is mounted
   const handleEventDidMount = (info: { event: EventApi; el: HTMLElement; view: ViewApi }) => {
     if (callbacks?.includes("eventMouseEnter")) {
       // Remove any previous listener to avoid duplicates
-      info.el.removeEventListener("mouseenter", (info.el as any)._stMouseEnterListener);
+      const prevListener = mouseEnterListeners.get(info.el);
+      if (prevListener) {
+        info.el.removeEventListener("mouseenter", prevListener);
+      }
       // Create and store the listener
       const listener = () => handleEventMouseEnter(info.event, info.view);
-      (info.el as any)._stMouseEnterListener = listener;
+      mouseEnterListeners.set(info.el, listener);
       info.el.addEventListener("mouseenter", listener);
     }
   }
