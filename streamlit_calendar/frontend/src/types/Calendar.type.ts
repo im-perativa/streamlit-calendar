@@ -52,6 +52,11 @@ export type EventClickValue = {
   view: ViewValue
 }
 
+export type EventMouseEnterValue = {
+  event: EventValue
+  view: ViewValue
+}
+
 export type EventChangeValue = {
   oldEvent: EventValue
   event: EventValue
@@ -82,6 +87,11 @@ export type EventClickComponentValue = {
   eventClick: EventClickValue
 }
 
+export type EventMouseEnterComponentValue = {
+  callback: "eventMouseEnter"
+  eventMouseEnter: EventMouseEnterValue
+}
+
 export type EventChangeComponentValue = {
   callback: "eventChange"
   eventChange: EventChangeValue
@@ -103,5 +113,6 @@ export type ComponentValue =
   | EventChangeComponentValue
   | EventsSetComponentValue
   | SelectComponentValue
+  | EventMouseEnterComponentValue
 
 export type Callback = ComponentValue["callback"]

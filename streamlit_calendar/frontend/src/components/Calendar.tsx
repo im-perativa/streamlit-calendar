@@ -34,6 +34,8 @@ import {
   EventChangeValue,
   EventClickComponentValue,
   EventClickValue,
+  EventMouseEnterComponentValue,
+  EventMouseEnterValue,
   EventsSetComponentValue,
   EventsSetValue,
   SelectComponentValue,
@@ -71,7 +73,7 @@ const CalendarFC: React.FC<Props> = ({
   args: { events, options, custom_css, callbacks, license_key },
 }) => {
   const calendarRef = useRef<FullCalendar>(null)
-  
+
   const getViewValue = (view: ViewApi): ViewValue => ({
     type: view.type,
     title: view.title,
@@ -80,7 +82,35 @@ const CalendarFC: React.FC<Props> = ({
     currentStart: view.currentStart.toISOString(),
     currentEnd: view.currentEnd.toISOString(),
   })
-  
+
+  // Attach native mouseenter event to event elements
+  const handleEventMouseEnter = (eventApi: EventApi, view: ViewApi) => {
+    const eventMouseEnter: EventMouseEnterValue = {
+      event: {
+        ...eventApi.toJSON(),
+        resourceId: eventApi.getResources()[0]?.id,
+      },
+      view: getViewValue(view),
+    }
+    const componentValue: EventMouseEnterComponentValue = {
+      callback: "eventMouseEnter",
+      eventMouseEnter,
+    }
+    Streamlit.setComponentValue(componentValue)
+  }
+
+  // This is called by FullCalendar for each event after it is mounted
+  const handleEventDidMount = (info: { event: EventApi; el: HTMLElement; view: ViewApi }) => {
+    if (callbacks?.includes("eventMouseEnter")) {
+      // Remove any previous listener to avoid duplicates
+      info.el.removeEventListener("mouseenter", (info.el as any)._stMouseEnterListener);
+      // Create and store the listener
+      const listener = () => handleEventMouseEnter(info.event, info.view);
+      (info.el as any)._stMouseEnterListener = listener;
+      info.el.addEventListener("mouseenter", listener);
+    }
+  }
+
   const handleDateClick = (arg: DateClickArg) => {
     const dateClick: DateClickValue = {
       allDay: arg.allDay,
@@ -199,6 +229,7 @@ const CalendarFC: React.FC<Props> = ({
         select={
           callbacks?.includes("select") ? handleSelect : undefined
         }
+        eventDidMount={handleEventDidMount}
         {...options}
       />
     </FullCalendarWrapper>

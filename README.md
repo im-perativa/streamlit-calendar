@@ -135,7 +135,19 @@ st.write(calendar)
 # }
 ```
 
-The properties of each callback is explained as follows:
+
+The properties of each callback are explained as follows:
+
+#### `eventMouseEnter`
+
+Triggered when the mouse enters an event element.
+
+| Property |         Type         | Description           |
+| -------- | :------------------: | --------------------- |
+| event    | [`Event`](#EventApi) | The associated event. |
+| view     |  [`View`](#ViewApi)  | The current view.     |
+
+Source: [https://fullcalendar.io/docs/eventMouseEnter](https://fullcalendar.io/docs/eventMouseEnter)
 
 #### `dateClick`
 
