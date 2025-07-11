@@ -1,25 +1,33 @@
-[tool.poetry]
+[project]
 name = "streamlit-calendar"
 version = "1.3.1"
 description = "📆 A Streamlit component to show callendar using FullCalendar (https://fullcalendar.io)"
-authors = ["Muhammad Luqman <im.imperativa@gmail.com>"]
+authors = [{name = "Muhammad Luqman", email = "im.imperativa@gmail.com"}]
 license = "Apache-2.0"
 readme = "README.md"
-repository = "https://github.com/im-perativa/streamlit-calendar"
-# This is required so the frontend code is properly included in the wheel.
-include = ["streamlit_calendar/frontend/build/**/*"]
+requires-python = ">=3.9,<4.0"
 keywords = ["streamlit", "streamlit-component"]
 
-[tool.poetry.dependencies]
-python = "^3.9"
-streamlit = "^1.12.0"
+# Main dependencies
+dependencies = [
+    "streamlit>=1.12.0,<2.0.0"
+]
 
-[tool.poetry.dev-dependencies]
-watchdog = "^2.1.9"
-black = "^22.6.0"
-isort = "^5.10.1"
+[project.urls]
+Repository = "https://github.com/im-perativa/streamlit-calendar"
+
+[tool.poetry]
+# This is required so the frontend code is properly included in the wheel.
+include = ["streamlit_calendar/frontend/build/**/*"]
+
+[tool.hatch.build]
+# Ensure the same include pattern for building as in Poetry
+include = ["streamlit_calendar/frontend/build/**/*"]
 
 [tool.poetry.group.dev.dependencies]
+watchdog="2.1.9"
+black="^22.6.0"
+isort="^5.10.1"
 bandit = "^1.7.5"
 
 [build-system]
