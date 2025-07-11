@@ -235,7 +235,9 @@ const CalendarFC: React.FC<Props> = ({
         select={
           callbacks?.includes("select") ? handleSelect : undefined
         }
-        eventDidMount={handleEventDidMount}
+        eventDidMount={
+          callbacks?.includes("eventMouseEnter") ? handleEventDidMount : undefined
+        }
         {...options}
       />
     </FullCalendarWrapper>
