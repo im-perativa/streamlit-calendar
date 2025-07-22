@@ -141,6 +141,7 @@ The properties of each callback are explained as follows:
 #### `eventMouseEnter`
 
 Triggered when the mouse enters an event element.
+Note: this callback is opt-in and is not enabled by default.
 
 | Property |         Type         | Description           |
 | -------- | :------------------: | --------------------- |
