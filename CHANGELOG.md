@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.0](https://github.com/im-perativa/streamlit-calendar/compare/v1.3.2...v1.4.0) (2025-07-24)
+
+
+### Features
+
+* add support for eventMouseEnter callback ([#62](https://github.com/im-perativa/streamlit-calendar/issues/62)) ([be8328e](https://github.com/im-perativa/streamlit-calendar/commit/be8328e08a3f1be91795a5205887a8a09ab377be)), closes [#60](https://github.com/im-perativa/streamlit-calendar/issues/60)
+
 ## [1.3.2](https://github.com/im-perativa/streamlit-calendar/compare/v1.3.1...v1.3.2) (2025-07-19)
 
 
