@@ -12,37 +12,40 @@ jobs:
   Quality:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v3
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
         with:
           python-version: 3.9.21
       - name: Install Python Poetry
-        uses: abatilo/actions-poetry@v2.1.0
+        uses: abatilo/actions-poetry@v4
         with:
-          poetry-version: 1.5.1
-      - name: Configure Poetry
-        shell: bash
-        run: python -m poetry config virtualenvs.in-project true
-      - name: View poetry version
-        run: poetry --version
-      - name: Install Dependencies
+          poetry-version: 2.1.3
+      - name: Setup a local virtual environment (if no poetry.toml file)
         run: |
-          python -m poetry install
+          poetry config virtualenvs.create true --local
+          poetry config virtualenvs.in-project true --local
+      - uses: actions/cache@v3
+        name: Define a cache for the virtual environment based on the dependencies lock file
+        with:
+          path: ./.venv
+          key: venv-${{ hashFiles('poetry.lock') }}
+      - name: Install the project dependencies
+        run: poetry install
 
   Release:
     needs: Quality
     if: github.event_name == 'push' && github.ref == 'refs/heads/master' && !contains(github.event.head_commit.message, 'chore(release):')
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/setup-python@v3
+      - uses: actions/setup-python@v5
         with:
           python-version: 3.9.21
       - name: Checkout Code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Install Python Poetry
-        uses: abatilo/actions-poetry@v2.1.0
+        uses: abatilo/actions-poetry@v4
         with:
-          poetry-version: 1.5.1
+          poetry-version: 2.1.3
       - name: Build Frontend
         working-directory: ./streamlit_calendar/frontend
         run: |
