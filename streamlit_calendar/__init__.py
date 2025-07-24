@@ -72,10 +72,11 @@ def calendar(
         nor use in commercial production websites or products if
         no license_key is provided.
     callbacks: str[]
-        List of callback to enable. By default all callbacks are enabled. 
+        List of callback to enable. By default all 'dateClick', 'eventClick', 
+        'eventChange', 'eventsSet', and 'select' are enabled.
         Set to empty list to disable all callbacks.
-        List may contain 'dateClick', 'eventClick', 'eventChange', 'eventsSet'
-        and 'select'.
+        List may contain 'dateClick', 'eventClick', 'eventChange', 'eventsSet',
+        'select' and 'eventMouseEnter'.
     key: str or None
         An optional key that uniquely identifies this component. If this set to
         None, and the component's arguments are changed, the component will
@@ -85,7 +86,7 @@ def calendar(
     -------
     dict
         State value from dateClick, eventClick, eventChange, eventsSet
-        and select callback
+        select, and eventMouseEnter callbacks. 
 
     """
     # Call through to our private component function. Arguments we pass here
