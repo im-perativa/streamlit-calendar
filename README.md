@@ -104,6 +104,33 @@ For information about `key`, check out: [Streamlit Widget Behavior](https://docs
 > [!IMPORTANT]
 > If using `st.session_state["events"]` as `events` (see [demo](https://github.com/im-perativa/streamlit-calendar-demo)), provide a string value for `key` to prevent unintended calendar refreshes because of state loss.
 
+### Python change callback
+
+Pass `on_change` to run a Python function when the component value changes,
+before Streamlit reruns your app. This requires **Streamlit 1.36.0 or later**.
+Use a stable `key` to read the new component value inside the function:
+
+```python
+def handle_calendar_change():
+    value = st.session_state["schedule"]
+    if value.get("callback") == "eventChange":
+        st.session_state["last_moved_event"] = value["eventChange"]["event"]
+
+calendar(
+    events=calendar_events,
+    options=calendar_options,
+    callbacks=["eventClick", "eventChange"],
+    key="schedule",
+    on_change=handle_calendar_change,
+)
+```
+
+`on_change` is separate from `callbacks`: `callbacks` selects the browser events
+that update the component value; `on_change` handles those updates in Python.
+An unrelated app rerun does not call it. Streamlit calls it when the component
+value changes, so identical consecutive values do not trigger it again.
+Calls without `on_change` continue to work on older supported Streamlit versions.
+
 ### Component Values
 
 The component value, i.e. the return value of the `calendar(...)` instance, is a dict which properties depends on the current called callback.
