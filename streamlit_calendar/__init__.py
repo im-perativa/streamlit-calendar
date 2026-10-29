@@ -51,6 +51,7 @@ def calendar(
     callbacks=["dateClick", "eventClick", "eventChange", "eventsSet", "select"],
     license_key="CC-Attribution-NonCommercial-NoDerivatives",
     key=None,
+    on_change=None,
 ):
     """Create a new instance of "calendar".
 
@@ -82,6 +83,11 @@ def calendar(
         None, and the component's arguments are changed, the component will
         be re-mounted in the Streamlit frontend and lose its current state.
 
+    on_change: callable or None
+        Optional Python callback invoked when the component value changes, before
+        the app reruns. Use a key to read the updated value from st.session_state
+        inside the callback. Requires Streamlit >= 1.36.0.
+
     Returns
     -------
     dict
@@ -95,6 +101,9 @@ def calendar(
     #
     # "default" is a special argument that specifies the initial return
     # value of the component before the user has interacted with it.
+    # Older Streamlit versions treat unknown keywords as frontend arguments.
+    # Keep calls without a Python callback compatible with those versions.
+    callback_kwargs = {"on_change": on_change} if on_change is not None else {}
     component_value = _component_func(
         events=events,
         options=options,
@@ -103,6 +112,7 @@ def calendar(
         license_key=license_key,
         key=key,
         default={},
+        **callback_kwargs,
     )
 
     # We could modify the value returned from the component if we wanted.
