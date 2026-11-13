@@ -28,6 +28,8 @@ jobs:
       - name: Install Dependencies
         run: |
           python -m poetry install
+      - name: Test Python wrapper
+        run: poetry run python -m unittest discover -s tests -v
 
   Release:
     needs: Quality
