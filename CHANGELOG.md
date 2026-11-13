@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.0](https://github.com/im-perativa/streamlit-calendar/compare/v1.4.0...v1.5.0) (2026-11-13)
+
+
+### Features
+
+* expose Python on_change callback ([#72](https://github.com/im-perativa/streamlit-calendar/issues/72)) ([f0e0615](https://github.com/im-perativa/streamlit-calendar/commit/f0e0615480eb0e5a957084004cb76ed37327db18))
+
 ## [1.4.0](https://github.com/im-perativa/streamlit-calendar/compare/v1.3.2...v1.4.0) (2025-07-24)
 
 
